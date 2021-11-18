@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% for article in object_list %}
+		<div class="article-update">
+			<h2><a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></h2>
+			<h3>{{ article.subtitle }}</h3>
+			<p>{{ article.body }}</p>
+			<h4>{{ article.date }}</h4>
+		</div>
+	{% endfor %}
+{% endblock content %}

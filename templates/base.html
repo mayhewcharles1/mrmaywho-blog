@@ -1,0 +1,22 @@
+<!-- templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mr May Who</title>
+	<link href="{% static 'css/base.css' %}" rel="stylesheet" >
+<!-- 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+	<header>
+		<h1><a href="{% url 'home' %}">Home</a></h1>
+		<h1><a href="{% url 'showcase' %}">Showcase</a></h1>
+	</header>
+	<div>
+		{% block content %}
+		{% endblock content %}
+	</div>
+
+</body>
+</html>

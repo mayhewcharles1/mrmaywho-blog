@@ -1,0 +1,57 @@
+/* static/css/base.css  */
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size:  18px;
+}
+
+header {
+
+	border-bottom:  1px solid #999;
+	margin-bottom: 2rem;
+	display: felx;
+
+}
+
+header h1 a {
+	color: blue;
+	text-decoration: none;
+}
+
+.nav-left {
+	margin-right: auto;
+}
+
+.nav-right {
+	display: flex;
+	padding-top: 2rem;
+}
+
+.article-update {
+	margin-bottom: 4rem;
+}
+
+.article-update h2{
+	margin: 1.5rem 0;
+}
+
+
+.article-update h2 a,
+.article-update a:visited {
+	color: blue;
+	text-decoration: none;
+}
+
+.article-update p{
+	margin:  0;
+	font-weight: 400;
+}
+
+.article-update h2 a:hover {
+	color: red;
+}
+
+.article-update h4{
+	margin: 0;
+	font-weight: 200;
+}

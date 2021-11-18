@@ -1,0 +1,11 @@
+<!-- templates/article_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="article-update">
+	<h2>{{ article.title }}</h2>
+	<h3>{{ article.subtitle }}</h3>
+	<p>{{ article.body }}</p>
+	<h4>{{ article.date }}</h4>
+</div>
+{% endblock content %}
