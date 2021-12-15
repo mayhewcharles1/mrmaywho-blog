@@ -8,4 +8,7 @@
 	<p>{{ article.body }}</p>
 	<h4>{{ article.date }}</h4>
 </div>
+
+<p><a href="{% url 'article_edit' article.pk %}">+ Edit Showcase Article</a></p>
+<p><a href="{% url 'article_delete' article.pk %}">+ Delete Showcase Article</a></p>
 {% endblock content %}

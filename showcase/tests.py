@@ -27,6 +27,9 @@ class ArticleTests(TestCase):
 		article = Article(title='A sample title')
 		self.assertEqual(str(article), article.title)
 
+	def test_get_absolute_url(self):
+		self.assertEqual(self.article.get_absolute_url(), '/article/1/')	
+
 	def test_article_content(self):
 		self.assertEqual(f'{self.article.title}', 'A good title')
 		self.assertEqual(f'{self.article.subtitle}', 'Test')
@@ -47,6 +50,29 @@ class ArticleTests(TestCase):
 		self.assertContains(response, 'A good title')
 		self.assertTemplateUsed(response, 'article_detail.html')
 
+	def test_article_create_view(self):
+		response = 	self.client.post(reverse('article_new'),{
+		'title': 'New title',
+		'body': 'New text',
+		'subtitle': 'New subtitle',
+		'author': self.user.id,
+		})
+		self.assertEqual(response.status_code, 302)
+		self.assertEqual(Article.objects.last().title, 'New title')
+		self.assertEqual(Article.objects.last().body, 'New text')
+
+	def test_article_update_view(self):
+		response = self.client.post(reverse('article_edit', args='1'), {
+			'title': 'Updated title',
+			'body': 'Updated text',
+			'subtitle': 'Updated subtitle'
+			})
+		self.assertEqual(response.status_code, 302)			
+
+	def test_article_delete_view(self):
+		response = self.client.post(
+			reverse('article_delete', args='1'))
+		self.assertEqual(response.status_code, 302)
 
 
 
